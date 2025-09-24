@@ -74,7 +74,7 @@ const execute = () => {
             .filter((p) => providers.find((loaded) => loaded.metaInformation.id === p.id) != null)
             .forEach(async (prov) => {
               const matchedProvider = providers.find((loaded) => loaded.metaInformation.id === prov.id);
-              matchedProvider.init(prov, job.blacklist);
+              matchedProvider.init(prov, job.blacklist, job.id, prov.id);
               await new FredyPipeline(
                 matchedProvider.config,
                 job.notificationAdapter,
